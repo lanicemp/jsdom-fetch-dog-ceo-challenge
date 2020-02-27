@@ -26,19 +26,15 @@ function fetchImage() {
 
   function renderBreeds(json) {
     const dogBreeds = document.querySelector("#dog-breeds")
-    for (const breed in json.message)
-     (`${breed}: ${json.message[breed.name]}`);
+    for (const breed in json.message) {
       const li = document.createElement('li')
-      li.innerHTML = dogBreeds
+      li.innerHTML = `${breed}`
       dogBreeds.appendChild(li)
-    
- 
+    }
 }
   
   document.addEventListener('DOMContentLoaded', function() {
     fetchImage()
     fetchDogBreeds()
-  
-    
   })
   
