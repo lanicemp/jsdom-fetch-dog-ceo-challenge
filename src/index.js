@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const select = document.querySelector("#breed-dropdown")
     select.addEventListener("change", function(){
       let filter = select.value
+      const dogBreeds = document.querySelector("#dog-breeds")
+      dogBreeds.innerHTML = "" 
       fetchDogBreeds(filter)
       //call fetch breed method and pass in value as an argument
      })
