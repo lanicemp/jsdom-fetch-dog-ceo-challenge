@@ -12,8 +12,25 @@ function renderImage(json) {
   const dogContainer = document.querySelector("#dog-image-container")
   json.message.forEach(image => {
     const img = document.createElement('img')
+    const regex = /breeds\/([\w-]+)/
+    const figure = document.createElement('figure')
+    const figcaption = document.createElement('figcaption')
+    
+    dogName = image.match(regex)[1]
     img.src = image
-    dogContainer.appendChild(img)
+    figcaption.innerText = dogName 
+    figure.appendChild(img)
+    figure.appendChild(figcaption)
+    dogContainer.appendChild(figure)
+    //Array.from(dogList.matchAll(regex)).map(array => array[1]) 
+    //const regex = /breeds\/([\w-]+)/g
+    //figure === const figure = document.createElement('figure')
+    //image 
+    //figcaption === const figcaption = document.createElement('figcaption')
+    // figcaption.innerText = dogName 
+    // insertAdjacentHTML() is another function to use to display the image an caption 
+    // next to another.. research later https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
+
   })
 }
 const breedUrl = 'https://dog.ceo/api/breeds/list/all'
